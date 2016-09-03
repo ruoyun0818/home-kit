@@ -8,6 +8,14 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:spring.xml,classpath:spring-mybatis.xml</param-value>
 	</context-param>
+	<context-param>
+		<param-name>webAppRootKey</param-name>
+		<param-value>webapp.root</param-value>
+	</context-param>
+	<context-param>
+		<param-name>log4jConfigLocation</param-name>
+		<param-value>/WEB-INF/classes/log4j.properties</param-value>
+	</context-param>
 
 	<filter>
 		<filter-name>encodingFilter</filter-name>
@@ -35,6 +43,14 @@
 		<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
 	</listener>
 
+	<!-- Log4j根路径配置 -->
+	<listener>
+		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+	</listener>
+	<!--这里配置了一个listener，也可以配置servlet: -->
+	<!-- <servlet> <servlet-name>log4j</servlet-name> <servlet-class> org.springframework.web.util.Log4jConfigServlet 
+		</servlet-class> <load-on-startup>1</load-on-startup> </servlet> -->
+
 	<servlet>
 		<servlet-name>rest</servlet-name>
 		<description>spring mvc servlet</description>
@@ -49,7 +65,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>rest</servlet-name>
-		<url-pattern>*.htmls</url-pattern>
+		<url-pattern>*.html</url-pattern>
 	</servlet-mapping>
 
 	<!-- 配置session超时时间，单位分钟 -->

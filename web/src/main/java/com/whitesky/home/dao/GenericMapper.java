@@ -3,7 +3,7 @@ package com.whitesky.home.dao;
 import java.io.Serializable;
 import java.util.List;
 
-public interface GenericMapper<T> extends Serializable {
+public abstract interface GenericMapper<T> extends Serializable {
 	int deleteByPrimaryKey(Integer id);
 
     int insert(T record);
