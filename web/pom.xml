@@ -24,7 +24,7 @@
 			<artifactId>mybatis</artifactId>
 			<version>3.4.1</version>
 		</dependency>
-		
+
 		<!--mybatis spring 插件 -->
 		<dependency>
 			<groupId>org.mybatis</groupId>
@@ -163,5 +163,23 @@
 	</dependencies>
 	<build>
 		<finalName>web</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.cargo</groupId>
+				<artifactId>cargo-maven2-plugin</artifactId>
+				<version>1.5.0</version>
+				<configuration>
+					<container>
+						<containerId>tomcat7x</containerId>
+						<home>D:/apache-tomcat-7.0.8</home>
+					</container>
+					<configuration>
+						<type>existing</type>
+						<home>D:/apache-tomcat-7.0.8</home>
+					</configuration>
+				</configuration>
+			</plugin>
+		</plugins>
 	</build>
+
 </project>
