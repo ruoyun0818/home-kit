@@ -13,16 +13,12 @@ public abstract class GenericServiceImpl<T> implements GenericService<T> {
 		this.genericMapper = genericMapper;
 	}
 
-	public T getModelById(int id) {
-		return genericMapper.selectByPrimaryKey(id);
-	}
-
 	public List<T> getModelList() {
 		return genericMapper.selectAll();
 	}
 
 	public int insert(T model) {
-		return genericMapper.insertSelective(model);
+		return genericMapper.insert(model);
 	}
 
 }

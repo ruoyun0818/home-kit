@@ -5,7 +5,7 @@ public class UserInfo {
 
 	private String uname;
 
-	private Integer unumber;
+	private String password;
 
 	public Integer getId() {
 		return id;
@@ -23,12 +23,14 @@ public class UserInfo {
 		this.uname = uname == null ? null : uname.trim();
 	}
 
-	public Integer getUnumber() {
-		return unumber;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setUnumber(Integer unumber) {
-		this.unumber = unumber;
+	public void setPassword(String password) {
+		this.password = password;
 	}
+
+	
 
 }

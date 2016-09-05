@@ -1,5 +1,7 @@
 package com.whitesky.home.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,4 +18,16 @@ public class UserInfoServiceImpl extends GenericServiceImpl<UserInfo>
 		super(userInfoMapper);
 	}
 
+	@Override
+	public UserInfo getUserByLogin(String name, String password) {
+		UserInfo info = new UserInfo();
+		info.setUname(name);
+		info.setPassword(password);
+		List<UserInfo> list = ((UserInfoMapper) genericMapper).queryList(info);
+		if(list != null && list.size() > 0){
+			return list.get(0);
+		}
+		return null;
+	}
+	
 }
