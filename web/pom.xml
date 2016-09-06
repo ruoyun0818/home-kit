@@ -159,18 +159,12 @@
 		<finalName>web</finalName>
 		<plugins>
 			<plugin>
-				<groupId>org.codehaus.cargo</groupId>
-				<artifactId>cargo-maven2-plugin</artifactId>
-				<version>1.5.0</version>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.5.1</version>
 				<configuration>
-					<container>
-						<containerId>tomcat7x</containerId>
-						<home>D:/apache-tomcat-7.0.8</home>
-					</container>
-					<configuration>
-						<type>existing</type>
-						<home>D:/apache-tomcat-7.0.8</home>
-					</configuration>
+					<source>1.7</source>
+					<target>1.7</target>
 				</configuration>
 			</plugin>
 		</plugins>
