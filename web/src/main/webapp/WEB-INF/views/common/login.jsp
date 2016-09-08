@@ -9,8 +9,8 @@
 <link rel="stylesheet" href="static/css/signin.css" />
 </head>
 <body>
+  <jsp:include page="/WEB-INF/views/common/util/top_nav.jsp" />
   <div class="container">
-    <jsp:include page="/WEB-INF/views/common/util/top_nav.jsp" />
     <form class="form-signin" role="form" method="post" action="<%=request.getContextPath()%>/doLogin">
       <div class="alert alert-warning alert-dismissible hide" role="alert">
         <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>

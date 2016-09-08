@@ -7,8 +7,8 @@
 <jsp:include page="/WEB-INF/views/common/head.jsp" />
 </head>
 <body>
+  <jsp:include page="/WEB-INF/views/common/util/top_nav.jsp" />
   <div class="container">
-    <jsp:include page="/WEB-INF/views/common/top_nav.jsp" />
     <div class="jumbotron">
       <h1>Welcome! ${userInfo.uname}</h1>
     </div>

@@ -8,7 +8,7 @@
 		http://www.springframework.org/schema/context/spring-context-4.1.xsd 
 		http://www.springframework.org/schema/mvc 
 		http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd">
-
+		
 	<!-- 自动扫描controller包下的所有类，如果@Controller注入为bean -->
 	<context:component-scan base-package="com.whitesky.home.controller" />
 
@@ -41,6 +41,10 @@
 		<property name="prefix" value="/WEB-INF/views" />
 		<property name="suffix" value=".jsp" />
 	</bean>
+	
+    <!-- servlet适配器，这里必须明确声明，因为spring默认没有初始化该适配器 -->  
+    <bean id="servletHandlerAdapter"
+        class="org.springframework.web.servlet.handler.SimpleServletHandlerAdapter" />
 	
 	<!-- 配置多文件上传 -->
 	<bean id="multipartResolver"

@@ -37,6 +37,7 @@ public class LoginController {
 	 * @param session
 	 * @return
 	 */
+	@RequestMapping("/logout")
 	public String logout(HttpSession session){
 		session.invalidate();
 		session.setAttribute(Constants.SESSION_NO_LOGIN, "已注销");

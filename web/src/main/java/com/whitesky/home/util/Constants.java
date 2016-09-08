@@ -16,4 +16,6 @@ public class Constants {
 	 * 用户未登陆提示key
 	 */
 	public static final String SESSION_NO_LOGIN = "no_login";
+	
+	public static final String SESSION_GLOBAL_ERROR = "global_error";
 }
