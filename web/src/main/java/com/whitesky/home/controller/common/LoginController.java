@@ -1,8 +1,10 @@
 package com.whitesky.home.controller.common;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -38,9 +40,9 @@ public class LoginController {
 	 * @return
 	 */
 	@RequestMapping("/logout")
-	public String logout(HttpSession session){
-		session.invalidate();
-		session.setAttribute(Constants.SESSION_NO_LOGIN, "已注销");
+	public String logout(HttpServletRequest request){
+		request.getSession().invalidate();
+		request.getSession(true).setAttribute(Constants.SESSION_NO_LOGIN, "已注销");
 		return "/common/login";
 	}
 	
