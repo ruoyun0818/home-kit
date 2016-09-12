@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>${userInfo.uname}</title>
-<jsp:include page="/WEB-INF/views/common/head.jsp" />
+<jsp:include page="/WEB-INF/views/common/util/head.jsp" />
 </head>
 <body>
   <jsp:include page="/WEB-INF/views/common/util/top_nav.jsp" />
@@ -12,9 +12,10 @@
     <div class="jumbotron">
       <h1>Welcome! ${userInfo.uname}</h1>
     </div>
-    <jsp:include page="/WEB-INF/views/common/footer.jsp" />
+    <jsp:include page="/WEB-INF/views/common/util/footer.jsp" />
   </div>
-<jsp:include page="/WEB-INF/views/common/js.jsp" />
+  <!-- /container -->
+<jsp:include page="/WEB-INF/views/common/util/js.jsp" />
 <script type="text/javascript">
 	
 </script>
