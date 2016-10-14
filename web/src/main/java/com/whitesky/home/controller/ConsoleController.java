@@ -1,4 +1,4 @@
-package com.whitesky.home.controller.common;
+package com.whitesky.home.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

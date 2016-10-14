@@ -1,4 +1,4 @@
-package com.whitesky.home.controller;
+package com.whitesky.home.controller.common;
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

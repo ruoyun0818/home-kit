@@ -1,4 +1,4 @@
-package com.whitesky.home.util;
+package com.whitesky.home.utils;
 
 import java.util.Calendar;
 import java.util.Date;

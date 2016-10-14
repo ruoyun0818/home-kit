@@ -1,4 +1,4 @@
-package com.whitesky.home.util;
+package com.whitesky.home.utils;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
  * @author whitesky
  * @date 2016年5月10日
  */
-public class NetUtil {
+public class NetWorkUtil {
 
 	/**
 	 * IP正则

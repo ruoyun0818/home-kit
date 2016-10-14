@@ -1,4 +1,4 @@
-package com.whitesky.home.controller.common;
+package com.whitesky.home.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.whitesky.home.controller.interceptor.LoginInterceptor;
+import com.whitesky.home.controller.common.interceptor.LoginInterceptor;
+import com.whitesky.home.env.WebConstants;
 import com.whitesky.home.model.UserInfo;
 import com.whitesky.home.service.UserInfoService;
-import com.whitesky.home.util.Constants;
 
 @Controller
 public class LoginController {
@@ -42,7 +42,7 @@ public class LoginController {
 	@RequestMapping("/logout")
 	public String logout(HttpServletRequest request){
 		request.getSession().invalidate();
-		request.getSession(true).setAttribute(Constants.SESSION_NO_LOGIN, "已注销");
+		request.getSession(true).setAttribute(WebConstants.SESSION_NO_LOGIN, "已注销");
 		return "/common/login";
 	}
 	
@@ -60,10 +60,10 @@ public class LoginController {
 		}
 		UserInfo user = userInfoService.getUserByLogin(name, password);
 		if(user == null){
-			session.setAttribute(Constants.SESSION_NO_LOGIN, "用户名不存在或者密码不正确");
+			session.setAttribute(WebConstants.SESSION_NO_LOGIN, "用户名不存在或者密码不正确");
 			return "redirect:/login";
 		}else{
-			session.setAttribute(Constants.SESSION_USER, user);
+			session.setAttribute(WebConstants.SESSION_USER, user);
 			return "redirect:/console";
 		}
 	}

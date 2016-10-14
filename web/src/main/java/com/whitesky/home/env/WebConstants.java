@@ -1,12 +1,12 @@
-package com.whitesky.home.util;
+package com.whitesky.home.env;
 
 /**
- * @title 常量
+ * @title web常量
  * @Description	
  * @author whitesky
  * @date 2016年9月4日
  */
-public class Constants {
+public class WebConstants {
 	/**
 	 * 用户登陆key
 	 */

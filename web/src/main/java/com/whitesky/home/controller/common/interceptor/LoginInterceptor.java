@@ -1,4 +1,4 @@
-package com.whitesky.home.controller.interceptor;
+package com.whitesky.home.controller.common.interceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -6,7 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-import com.whitesky.home.util.Constants;
+import com.whitesky.home.env.WebConstants;
 
 /**
  * @title 登陆Session过滤
@@ -21,14 +21,14 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 			throws Exception {
 		boolean login = isLogin(request.getSession());
 		if(!login){
-			request.getSession().setAttribute(Constants.SESSION_NO_LOGIN, "未登陆或者登陆超时");
+			request.getSession().setAttribute(WebConstants.SESSION_NO_LOGIN, "未登陆或者登陆超时");
 			response.sendRedirect(request.getContextPath()+"/login");
 		}
 		return login;
 	}
 	
 	public static boolean isLogin(HttpSession session){
-		return session.getAttribute(Constants.SESSION_USER) != null;
+		return session.getAttribute(WebConstants.SESSION_USER) != null;
 	}
 	
 }

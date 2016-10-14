@@ -75,7 +75,7 @@
 			<mvc:exclude-mapping path="/"/>
 			<mvc:exclude-mapping path="/login"/>
 			<mvc:exclude-mapping path="/doLogin"/>
-			<bean id="loginInterceptor" class="com.whitesky.home.controller.interceptor.LoginInterceptor" />
+			<bean id="loginInterceptor" class="com.whitesky.home.controller.common.interceptor.LoginInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors>
 	
