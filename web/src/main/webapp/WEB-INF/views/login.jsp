@@ -5,11 +5,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>登陆</title>
-<jsp:include page="/WEB-INF/views/common/util/head.jsp" />
+<jsp:include page="/WEB-INF/views/common/head.jsp" />
 <link rel="stylesheet" href="static/css/signin.css" />
 </head>
 <body>
-  <jsp:include page="/WEB-INF/views/common/util/top_nav.jsp" />
+  <jsp:include page="/WEB-INF/views/common/top_nav.jsp" />
   <div class="container">
     <form class="form-signin" role="form" method="post" action="<%=request.getContextPath()%>/doLogin">
       <div class="alert alert-warning alert-dismissible hide" role="alert">
@@ -27,10 +27,10 @@
                               登陆
       </button>
     </form>
-    <jsp:include page="/WEB-INF/views/common/util/footer.jsp" />
+    <jsp:include page="/WEB-INF/views/common/footer.jsp" />
   </div>
   <!-- /container -->
-<jsp:include page="/WEB-INF/views/common/util/js.jsp" />
+<jsp:include page="/WEB-INF/views/common/js.jsp" />
 <script type="text/javascript">
 	$(function(){
 		if(<%=session.getAttribute(Constants.SESSION_NO_LOGIN)!=null%>){

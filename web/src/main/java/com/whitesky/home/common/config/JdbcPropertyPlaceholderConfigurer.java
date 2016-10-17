@@ -1,4 +1,4 @@
-package com.whitesky.home.env;
+package com.whitesky.home.common.config;
 
 import java.util.Properties;
 
@@ -7,6 +7,7 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
 
+import com.whitesky.home.common.Constant;
 import com.whitesky.home.utils.DesEncrypt;
 
 /**
@@ -15,10 +16,10 @@ import com.whitesky.home.utils.DesEncrypt;
  * @author whitesky
  * @date 2016年10月13日
  */
-public class EnvPropertyPlaceholderConfigurer extends PropertyPlaceholderConfigurer  {
+public class JdbcPropertyPlaceholderConfigurer extends PropertyPlaceholderConfigurer  {
 	private final String desKey = "测试2421FｊｊJJJFEj密钥jjffweｆｊｊ14ｆｅ";
 	
-	public final static Logger LOGGER = Logger.getLogger(EnvPropertyPlaceholderConfigurer.class);
+	public final static Logger LOGGER = Logger.getLogger(JdbcPropertyPlaceholderConfigurer.class);
 	
 	@Override
 	protected void processProperties(ConfigurableListableBeanFactory beanFactoryToProcess, Properties props)
@@ -26,7 +27,7 @@ public class EnvPropertyPlaceholderConfigurer extends PropertyPlaceholderConfigu
 		try {
 			final String[] propKeys = new String[]{"jdbc.url","jdbc.username","jdbc.password"};
 			//指定编码方式
-			DesEncrypt encrypt = new DesEncrypt(desKey, EnvConstant.DEFAULT_ENCODING);
+			DesEncrypt encrypt = new DesEncrypt(desKey, Constant.DEFAULT_ENCODING);
 			for (String key : propKeys) {
 				String value = props.getProperty(key);
 				String encryptValue = encrypt.decrypt(value);

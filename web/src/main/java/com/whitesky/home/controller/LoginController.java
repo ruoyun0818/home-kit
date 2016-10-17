@@ -4,22 +4,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.whitesky.home.common.WebConstants;
 import com.whitesky.home.controller.common.interceptor.LoginInterceptor;
-import com.whitesky.home.env.WebConstants;
-import com.whitesky.home.model.UserInfo;
-import com.whitesky.home.service.UserInfoService;
+import com.whitesky.home.service.DeviceService;
 
 @Controller
 public class LoginController {
 	
 	@Autowired
-	UserInfoService userInfoService;
+	DeviceService deviceService;
 	
 	/**
 	 * login page
@@ -31,7 +29,7 @@ public class LoginController {
 		if(LoginInterceptor.isLogin(session)){
 			return "redirect:/console";
 		}
-		return "/common/login";
+		return "/login";
 	}
 	
 	/**
@@ -43,7 +41,7 @@ public class LoginController {
 	public String logout(HttpServletRequest request){
 		request.getSession().invalidate();
 		request.getSession(true).setAttribute(WebConstants.SESSION_NO_LOGIN, "已注销");
-		return "/common/login";
+		return "/login";
 	}
 	
 	/**
@@ -58,13 +56,7 @@ public class LoginController {
 		if(LoginInterceptor.isLogin(session)){
 			return "redirect:/console";
 		}
-		UserInfo user = userInfoService.getUserByLogin(name, password);
-		if(user == null){
-			session.setAttribute(WebConstants.SESSION_NO_LOGIN, "用户名不存在或者密码不正确");
-			return "redirect:/login";
-		}else{
-			session.setAttribute(WebConstants.SESSION_USER, user);
-			return "redirect:/console";
-		}
+		
+		return "redirect:/console";
 	}
 }

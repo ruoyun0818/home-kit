@@ -16,6 +16,6 @@ public class ConsoleController {
 		if(error != null && error.length() > 1){
 			throw new RuntimeException(new Exception("控制台抛出了一个异常!"));
 		}
-		return "/common/console";
+		return "/console";
 	}
 }

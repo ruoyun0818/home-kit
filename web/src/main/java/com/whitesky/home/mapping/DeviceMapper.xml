@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.whitesky.home.dao.UserInfoMapper">
-	<resultMap id="BaseResultMap" type="com.whitesky.home.model.UserInfo">
+<mapper namespace="com.whitesky.home.dao.DeviceMapper">
+	<resultMap id="BaseResultMap" type="com.whitesky.home.model.Device">
 		<id column="id" property="id" jdbcType="INTEGER" javaType="int" />
 		<result column="uname" property="uname" jdbcType="VARCHAR" javaType="String" />
 		<result column="password" property="password" jdbcType="INTEGER" javaType="String" />
 	</resultMap>
-	<insert id="insert" parameterType="com.whitesky.home.model.UserInfo">
+	<insert id="insert" parameterType="com.whitesky.home.model.Device">
 		insert into user_info (id,
 		uname, password
 		)
@@ -18,7 +18,7 @@
 	<select id="selectAll" resultMap="BaseResultMap">
 		select u.id, u.uname, u.password from user_info u
 	</select>
-	<select id="queryList" parameterType="com.whitesky.home.model.UserInfo" resultMap="BaseResultMap">
+	<select id="queryList" parameterType="com.whitesky.home.model.Device" resultMap="BaseResultMap">
 		select u.id, u.uname, u.password from user_info u where 1=1 
 		<if test="uname != null">
 			and u.uname = #{uname}

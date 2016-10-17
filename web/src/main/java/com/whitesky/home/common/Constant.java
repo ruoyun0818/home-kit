@@ -1,4 +1,4 @@
-package com.whitesky.home.env;
+package com.whitesky.home.common;
 
 /**
  * @Title: 工作常量
@@ -6,9 +6,10 @@ package com.whitesky.home.env;
  * @author whitesky
  * @date 2016年10月14日
  */
-public class EnvConstant {
+public class Constant {
 	/**
 	 * 默认编码方式
 	 */
 	public static final String DEFAULT_ENCODING="utf-8";
+	
 }
