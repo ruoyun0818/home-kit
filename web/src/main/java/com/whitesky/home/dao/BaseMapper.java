@@ -1,14 +1,14 @@
-package com.whitesky.home.service;
+package com.whitesky.home.dao;
 
 import java.io.Serializable;
 import java.util.List;
 
-public interface GenericService<T, PK extends Serializable> {
+public abstract interface BaseMapper<T, PK extends Serializable> {
 	/**  
      * 插入一个实体  
      * @param entity  
      */  
-    void insert(T entity) ;  
+    PK insert(T entity) ;  
       
     /**  
      * 根据实体主键删除一个实体  

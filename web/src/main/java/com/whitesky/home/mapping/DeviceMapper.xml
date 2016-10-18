@@ -2,30 +2,33 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.whitesky.home.dao.DeviceMapper">
 	<resultMap id="BaseResultMap" type="com.whitesky.home.model.Device">
-		<id column="id" property="id" jdbcType="INTEGER" javaType="int" />
-		<result column="uname" property="uname" jdbcType="VARCHAR" javaType="String" />
-		<result column="password" property="password" jdbcType="INTEGER" javaType="String" />
+		<id column="id" property="id" jdbcType="VARCHAR" javaType="String" />
+		<result column="name" property="name" jdbcType="VARCHAR" javaType="String" />
+		<result column="note" property="note" jdbcType="VARCHAR" javaType="String" />
+		<result column="create_time" property="createTime" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp" />
+		<result column="type" property="type" jdbcType="VARCHAR" javaType="com.whitesky.home.common.model.DeviceType" typeHandler="org.apache.ibatis.type.EnumOrdinalTypeHandler" />
 	</resultMap>
 	<insert id="insert" parameterType="com.whitesky.home.model.Device">
-		insert into user_info (id,
-		uname, password
-		)
-		values (#{id,jdbcType=INTEGER},
-		#{uname,jdbcType=VARCHAR},
-		#{password,jdbcType=VARCHAR}
-		)
+		insert into device (name,note,type,create_time)
+		values (#{name,jdbcType=VARCHAR}, #{note,jdbcType=VARCHAR},
+		#{type,jdbcType=VARCHAR}, #{createTime,jdbcType=DATETIME} )
 	</insert>
-	<select id="selectAll" resultMap="BaseResultMap">
-		select u.id, u.uname, u.password from user_info u
+	<select id="queryAll" resultMap="BaseResultMap">
+		select * from device d where 1=1 
 	</select>
-	<select id="queryList" parameterType="com.whitesky.home.model.Device" resultMap="BaseResultMap">
-		select u.id, u.uname, u.password from user_info u where 1=1 
-		<if test="uname != null">
-			and u.uname = #{uname}
-		</if>
-		<if test="password != null">
-			and u.password = #{password}
-		</if>
+	<select id="queryAllByEntity" parameterType="com.whitesky.home.model.Device" resultMap="BaseResultMap">
+		select * from device d 
+		<where>
+			<if test="id != null">
+				and d.id = #{id}
+			</if>
+			<if test="name != null">
+				and d.name = #{name}
+			</if>
+			<if test="type != null">
+				and d.type = #{type}
+			</if>
+		</where>
 		
 	</select>
 </mapper>

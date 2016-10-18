@@ -97,6 +97,7 @@ public class DesEncrypt {
 		this(strKey, strEncoding);
 	}
 	
+	@SuppressWarnings("restriction")
 	public DesEncrypt(String strKey, String strEncoding) throws Exception {
 		DesEncrypt.strEncoding = strEncoding;
 		Security.addProvider(new com.sun.crypto.provider.SunJCE());
