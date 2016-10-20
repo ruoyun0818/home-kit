@@ -35,7 +35,7 @@
 	</filter-mapping>
 
 	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+		<listener-class>com.whitesky.home.controller.common.context.ContextInit</listener-class>
 	</listener>
 
 	<!-- 防止spring内存溢出监听器 -->
@@ -50,19 +50,11 @@
 	<!--这里配置了一个listener，也可以配置servlet: -->
 	<!-- <servlet> <servlet-name>log4j</servlet-name> <servlet-class> org.springframework.web.util.Log4jConfigServlet 
 		</servlet-class> <load-on-startup>1</load-on-startup> </servlet> -->
-	<!-- 注册默认静态资源处理方式到容器,其他交给spring mvc rest -->
+	<!-- 注册默认静态资源处理方式到容器,其他交给spring mvc rest
 	<servlet-mapping>
 		<servlet-name>default</servlet-name>
 		<url-pattern>/static/*</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>default</servlet-name>
-		<url-pattern>*.js</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>default</servlet-name>
-		<url-pattern>*.css</url-pattern>
-	</servlet-mapping>
+	</servlet-mapping> -->
 	
 	<servlet>
 		<servlet-name>rest</servlet-name>

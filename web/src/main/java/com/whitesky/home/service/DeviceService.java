@@ -1,7 +1,7 @@
 package com.whitesky.home.service;
 
-import com.whitesky.home.model.Device;
+import com.whitesky.home.dao.DeviceMapper;
 
-public interface DeviceService extends GenericService<Device, String> {
+public interface DeviceService extends GenericService<DeviceMapper> {
 	
 }

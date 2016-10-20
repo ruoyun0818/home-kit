@@ -9,7 +9,7 @@ public class DeviceLogin extends ModelBase {
 	private Integer id;
 	private String deviceId;
 	private String ipAddr;
-	private Integer status = 1;
+	private Integer status = 1;//-1复位 -2超时 1注册2登录10注销
 	private Timestamp registerTime;
 	private Timestamp loginTime;
 

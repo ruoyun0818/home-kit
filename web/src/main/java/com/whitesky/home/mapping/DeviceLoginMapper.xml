@@ -2,6 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.whitesky.home.dao.DeviceLoginMapper">
 	<resultMap id="BaseResultMap" type="com.whitesky.home.model.DeviceLogin">
+		<id column="ID" property="id" jdbcType="INTEGER" javaType="Integer" />
+		<result column="DEVICE_ID" property="deviceId" jdbcType="VARCHAR" javaType="String" />
+		<result column="IP_ADDR" property="ipAddr" jdbcType="VARCHAR" javaType="String" />
+		<result column="STATUS" property="status" jdbcType="INTEGER" javaType="Integer" />
+		<result column="REGISTER_TIME" property="registerTime" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp" />
+		<result column="LOGIN_TIME" property="loginTime" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp" />
 	</resultMap>
 	<insert id="insert" parameterType="com.whitesky.home.model.DeviceLogin">
 		<selectKey resultType="java.lang.Short" order="AFTER"
@@ -9,4 +15,13 @@
 			SELECT LAST_INSERT_ID() AS id
 		</selectKey>
 	</insert>
+	<select id="queryRegisterList" resultMap="BaseResultMap">
+		SELECT * FROM DEVICE_LOGIN D WHERE STATUS=1
+	</select>
+	<update id="resetStatus">
+		UPDATE DEVICE_LOGIN SET STATUS=CASE WHEN STATUS=2 THEN -1 WHEN STATUS=1 AND TIMESTAMPDIFF(MINUTE,REGISTER_TIME,NOW())>10 THEN -2 ELSE STATUS END
+	</update>
+	<update id="clearOverdueLogin">
+		UPDATE DEVICE_LOGIN SET STATUS=-2 WHERE STATUS=1 AND TIMESTAMPDIFF(MINUTE,REGISTER_TIME,NOW())>10
+	</update>
 </mapper>

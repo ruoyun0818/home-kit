@@ -42,9 +42,10 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 	
-    <!-- servlet适配器，这里必须明确声明，因为spring默认没有初始化该适配器 -->  
-    <bean id="servletHandlerAdapter"
-        class="org.springframework.web.servlet.handler.SimpleServletHandlerAdapter" />
+	<!-- 对静态资源文件的访问 1 -->
+    <mvc:default-servlet-handler/>  
+    
+    <!-- <mvc:resources mapping="/static/**" location="/static/"/> -->  
 	
 	<!-- 配置多文件上传 -->
 	<bean id="multipartResolver"
@@ -72,9 +73,7 @@
 		<!-- 登陆过滤器 -->
 		<mvc:interceptor>
 			<mvc:mapping path="/**" />
-			<mvc:exclude-mapping path="/"/>
-			<mvc:exclude-mapping path="/login"/>
-			<mvc:exclude-mapping path="/doLogin"/>
+			<mvc:exclude-mapping path="/static/**"/><!-- 不包含静态资源处理 -->
 			<bean id="loginInterceptor" class="com.whitesky.home.controller.common.interceptor.LoginInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors>

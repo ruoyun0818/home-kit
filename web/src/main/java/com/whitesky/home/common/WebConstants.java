@@ -20,4 +20,8 @@ public class WebConstants {
 	public static final String SESSION_NO_LOGIN_INFO = "设备未登陆";
 	
 	public static final String SESSION_GLOBAL_ERROR = "global_error";
+	/**
+	 * 在线设备
+	 */
+	public static final String CONTEXT_DEVICE_KEY = "context_online_device";
 }
