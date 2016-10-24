@@ -37,6 +37,11 @@
 	<listener>
 		<listener-class>com.whitesky.home.controller.common.context.ContextInit</listener-class>
 	</listener>
+	
+	<listener>
+		<description>session监听</description>
+		<listener-class>com.whitesky.home.controller.common.interceptor.SessionListener</listener-class>
+	</listener>
 
 	<!-- 防止spring内存溢出监听器 -->
 	<listener>

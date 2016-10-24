@@ -5,9 +5,7 @@ import javax.servlet.ServletContextEvent;
 import org.apache.log4j.Logger;
 import org.springframework.web.context.ContextLoaderListener;
 
-import com.whitesky.home.common.WebConstants;
-import com.whitesky.home.controller.common.ContextUtil;
-import com.whitesky.home.service.DeviceLoginService;
+import com.whitesky.home.controller.common.GlobalManager;
 
 public class ContextInit extends ContextLoaderListener {
 	
@@ -17,7 +15,7 @@ public class ContextInit extends ContextLoaderListener {
 	public void contextInitialized(ServletContextEvent event) {
 		super.contextInitialized(event);
 		logger.info("contextInitialized...");
-		ContextUtil.deviceInit();
+		GlobalManager.deviceInit();
 	}
 	
 	@Override
