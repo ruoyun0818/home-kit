@@ -10,11 +10,8 @@
 
 	<!-- 注解配置方式 -->
 	<context:annotation-config />
-	<!-- 配置任务线性池 -->  
-    <task:executor id="executor" pool-size="3" />  
-    <task:scheduler id="scheduler" pool-size="3" />  
 	<!-- 定时器开关-->  
-	<task:annotation-driven scheduler="scheduler" executor="executor" proxy-target-class="true" /> 
+	<task:annotation-driven /> 
 
 	<!--引入配置属性文件 -->
 	<!-- <context:property-placeholder location="classpath:config.properties" /> -->

@@ -12,14 +12,10 @@ public class WebConstants {
 	 */
 	public static final String SESSION_LOGIN_KEY = "login_key";
 	
-	/**
-	 * 用户未登陆提示key
-	 */
-	public static final String SESSION_NO_LOGIN = "no_login";
-	
-	public static final String SESSION_NO_LOGIN_INFO = "设备未登陆";
-	
 	public static final String SESSION_GLOBAL_ERROR = "global_error";
+	
+	public static final String LOGIN_ERROR = "login_error";
+	
 	/**
 	 * 在线设备
 	 */

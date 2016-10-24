@@ -5,6 +5,7 @@
 		<id column="ID" property="id" jdbcType="INTEGER" javaType="Integer" />
 		<result column="DEVICE_ID" property="deviceId" jdbcType="VARCHAR" javaType="String" />
 		<result column="IP_ADDR" property="ipAddr" jdbcType="VARCHAR" javaType="String" />
+		<result column="REGISTER_CODE" property="registerCode" jdbcType="VARCHAR" javaType="String" />
 		<result column="STATUS" property="status" jdbcType="INTEGER" javaType="Integer" />
 		<result column="REGISTER_TIME" property="registerTime" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp" />
 		<result column="LOGIN_TIME" property="loginTime" jdbcType="TIMESTAMP" javaType="java.sql.Timestamp" />

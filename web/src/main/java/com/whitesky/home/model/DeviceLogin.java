@@ -9,6 +9,7 @@ public class DeviceLogin extends ModelBase {
 	private Integer id;
 	private String deviceId;
 	private String ipAddr;
+	private String registerCode;
 	private Integer status = 1;//-1复位 -2超时 1注册2登录10注销
 	private Timestamp registerTime;
 	private Timestamp loginTime;
@@ -59,5 +60,13 @@ public class DeviceLogin extends ModelBase {
 
 	public void setLoginTime(Timestamp loginTime) {
 		this.loginTime = loginTime;
+	}
+
+	public String getRegisterCode() {
+		return registerCode;
+	}
+
+	public void setRegisterCode(String registerCode) {
+		this.registerCode = registerCode;
 	}
 }

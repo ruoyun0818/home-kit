@@ -73,7 +73,9 @@
 		<!-- 登陆过滤器 -->
 		<mvc:interceptor>
 			<mvc:mapping path="/**" />
+			<mvc:mapping path="/res/**" />
 			<mvc:exclude-mapping path="/static/**"/><!-- 不包含静态资源处理 -->
+			<mvc:exclude-mapping path="/error"/>
 			<bean id="loginInterceptor" class="com.whitesky.home.controller.common.interceptor.LoginInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors>

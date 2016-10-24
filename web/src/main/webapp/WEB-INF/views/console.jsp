@@ -10,7 +10,7 @@
 <body>
 	<jsp:include page="/WEB-INF/views/common/top_nav.jsp" />
 	<div class="container">
-	
+	    <a href="<%=request.getContextPath()%>/static/html/audio.html">音乐播放器</a>
 		<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 	</div>
 	<!-- /container -->

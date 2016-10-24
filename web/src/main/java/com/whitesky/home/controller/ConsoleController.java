@@ -6,9 +6,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.whitesky.home.controller.common.BaseController;
+
 @Controller
 @RequestMapping(value = "/console", method = RequestMethod.GET)
-public class ConsoleController {
+public class ConsoleController extends BaseController {
 
 	@RequestMapping("")
 	public String index(ModelMap modelMap,
