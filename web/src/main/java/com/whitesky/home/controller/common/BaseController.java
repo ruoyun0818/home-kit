@@ -1,16 +1,8 @@
 package com.whitesky.home.controller.common;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import com.whitesky.home.model.DeviceLogin;
-import com.whitesky.home.service.DeviceLoginService;
 
 public abstract class BaseController {
 	
@@ -26,10 +18,4 @@ public abstract class BaseController {
 		request.setAttribute("message", msg);
 		return ERROR;
 	}
-	
-	@Autowired
-	public static DeviceLoginService deviceLoginService;
-	
-	protected static Map<String, DeviceLogin> ipRegisterMap = Collections.synchronizedMap(new HashMap<String, DeviceLogin>());
-	
 }

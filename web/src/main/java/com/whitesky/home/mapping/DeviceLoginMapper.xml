@@ -25,4 +25,7 @@
 	<update id="clearOverdueLogin">
 		UPDATE DEVICE_LOGIN SET STATUS=-2 WHERE STATUS=1 AND TIMESTAMPDIFF(MINUTE,REGISTER_TIME,NOW())>10
 	</update>
+	<update id="logOut" parameterType="String">
+		UPDATE DEVICE_LOGIN SET STATUS=10 WHERE DEVICE_ID=#{deviceId,jdbcType=VARCHAR} AND STATUS=2
+	</update>
 </mapper>

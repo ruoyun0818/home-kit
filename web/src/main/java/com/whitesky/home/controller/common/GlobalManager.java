@@ -9,8 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 
 import com.whitesky.home.common.WebConstants;
 import com.whitesky.home.model.DeviceLogin;
@@ -18,36 +20,23 @@ import com.whitesky.home.service.DeviceLoginService;
 
 /**
  * @Title:
- * @Description: 业务相关管理 
+ * @Description: 业务相关管理  初始化
  * @author whitesky
  * @date 2016年10月24日
  */
-public class GlobalManager {
-	private GlobalManager(){}
-	private static final Logger logger = Logger.getLogger(GlobalManager.class);
-	protected static final GlobalManager INSTANCE = new GlobalManager();
+@Component
+public class GlobalManager implements InitializingBean {
 	@Autowired
+	public GlobalManager(DeviceLoginService deviceLoginService){
+		GlobalManager.deviceLoginService = deviceLoginService;
+	}
+	private static final Logger logger = Logger.getLogger(GlobalManager.class);
 	protected static DeviceLoginService deviceLoginService;
 	
 	/** 当前登录信息 */
 	protected static final Map<String, HttpSession> DEVICE_ONLINE_MAP = Collections.synchronizedMap(new HashMap<String, HttpSession>());
 	/** 已注册未登录IP设备 */
 	protected static final Map<String, DeviceLogin> IP_REGISTER_MAP = Collections.synchronizedMap(new HashMap<String, DeviceLogin>());
-	
-	public static final GlobalManager getInstance(){
-		return INSTANCE;
-	}
-	
-	/**
-	 * 设备信息初始化
-	 * @param event
-	 */
-	public static void deviceInit(){
-		logger.info("device initialization started...");
-		//复位登录状态
-		deviceLoginService.resetStatus();
-		logger.info("deviceInitialized...");
-	}
 	
 	/**
 	 * ip是否有登录设备
@@ -120,14 +109,42 @@ public class GlobalManager {
 	}
 	
 	/**
+	 * 当前是否登录
+	 * 
+	 * @param request
+	 * @return
+	 */
+	public static boolean isLogin(HttpServletRequest request) {
+		Object deviceId = request.getSession().getAttribute(WebConstants.SESSION_LOGIN_KEY);
+		return deviceId != null && DEVICE_ONLINE_MAP.containsKey(deviceId);
+	}
+	
+	//===================Component=============================//
+
+	@Override
+	public void afterPropertiesSet() throws Exception {
+		deviceInit();
+	}
+
+	/**
+	 * 设备信息初始化
+	 * @param event
+	 */
+	private void deviceInit(){
+		logger.info("device initialization started...");
+		//复位登录状态
+		deviceLoginService.resetStatus();
+		logger.info("deviceInitialized...");
+	}
+	
+	/**
 	 * 刷新设备信息
 	 */
 	@Scheduled(fixedRate = 5 * 60 * 1000)//间隔时间5分钟
-	public static synchronized void refreshDevice(){
+	private void refreshDevice(){
 		logger.info("refreshDevice started...");
 		overdueLoginClear();
 		List<DeviceLogin> list = deviceLoginService.queryRegisterList();
-		//TODO 检查当前登录设备信息
 		IP_REGISTER_MAP.clear();
 		if(list != null){
 			for (DeviceLogin deviceLogin : list) {
@@ -140,22 +157,11 @@ public class GlobalManager {
 	/**
 	 * 清除超过10分钟未登录的超时设备 
 	 */
-	protected static void overdueLoginClear() {
+	private void overdueLoginClear() {
 		logger.info("overdueLoginClear started...");
 		int num = deviceLoginService.clearOverdueLogin();
 		logger.info(String.format("overdueLoginCleared total [%d]...", num));
 	}
 	
-	/**
-	 * 当前是否登录
-	 * 
-	 * @param request
-	 * @return
-	 */
-	public static boolean isLogin(HttpServletRequest request) {
-		Object deviceId = request.getSession().getAttribute(WebConstants.SESSION_LOGIN_KEY);
-		return deviceId != null && DEVICE_ONLINE_MAP.containsKey(deviceId);
-	}
-	
-	
+	//====================Component END============================//
 }

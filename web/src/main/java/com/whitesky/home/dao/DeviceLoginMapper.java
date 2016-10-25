@@ -11,4 +11,6 @@ public interface DeviceLoginMapper extends BaseMapper<DeviceLogin, Timestamp> {
 	public int resetStatus();
 	
 	public int clearOverdueLogin();
+	
+	public int logOut(String deviceId);
 }

@@ -22,17 +22,11 @@ public class DeviceLoginServiceImpl extends GenericServiceImpl<DeviceLoginMapper
 	}
 	
 	@Override
-	public String login(String ip, String sessionId) {
-		return null;
-	}
-
-	@Override
-	public String register(String deviceId, String ip) {
-		return null;
-	}
-
-	@Override
 	public void resetStatus() {
 	}
 
+	@Override
+	public void logOut(String deviceId) {
+	}
+	
 }

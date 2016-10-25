@@ -9,10 +9,13 @@ public interface DeviceLoginService extends GenericService<DeviceLoginMapper> {
 	/**
 	 * 复位状态
 	 * 清空已登录的状态
-	 * 注册时间超过10分钟未登录的状态改变
 	 */
 	public void resetStatus();
 	
+	/**
+	 * 注册时间超过10分钟未登录的状态改变
+	 * @return
+	 */
 	public int clearOverdueLogin();
 	
 	/**
@@ -21,7 +24,9 @@ public interface DeviceLoginService extends GenericService<DeviceLoginMapper> {
 	 */
 	public List<DeviceLogin> queryRegisterList();
 	
-	public String register(String deviceId, String ip);
-	
-	public String login(String ip, String sessionId);
+	/**
+	 * 注销
+	 * @param deviceId
+	 */
+	public void logOut(String deviceId);
 }

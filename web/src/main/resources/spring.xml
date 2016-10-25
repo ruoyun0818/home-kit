@@ -25,8 +25,6 @@
 
 	<!--自动扫描含有@Service将其注入为bean -->
 	<context:component-scan base-package="com.whitesky.home.service.impl" />
-	<!-- 自动扫描定时任务@Scheduled -->
-	<context:component-scan base-package="com.whitesky.home.controller.common.task" />
 
 	<!-- 国际化资源配置 <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource"> 
 		<property name="basename" value="message" /> <property name="useCodeAsDefaultMessage" 
