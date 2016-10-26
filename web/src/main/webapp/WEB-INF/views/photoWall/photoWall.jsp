@@ -4,13 +4,12 @@
 <html lang="zh-cn">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>控制台</title>
+<title>照片墙</title>
 <jsp:include page="/WEB-INF/views/common/head.jsp" />
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/common/top_nav.jsp" />
 	<div class="container">
-	    <a href="<%=request.getContextPath()%>/addon/audio">音乐播放器</a>
 		<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 	</div>
 	<!-- /container -->

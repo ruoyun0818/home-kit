@@ -36,15 +36,15 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 			throws Exception {
 		final boolean login = GlobalManager.isLogin(request);
 		if (!login) {
-			if(request.getAttribute(WebConstants.LOGIN_ERROR) == null)//可能注销的时候会传递消息
-				request.setAttribute(WebConstants.LOGIN_ERROR, "未登录");
 			if(!GlobalManager.isDeviceRegister(GlobalUtil.getIpAddr(request))){
-				response.sendRedirect(BaseController.DEVICE_NO_LOGIN_HTML);
+				request.getRequestDispatcher(BaseController.DEVICE_NO_LOGIN_HTML).forward(request, response);
 			}else if(NO_CHECKURIS.contains(GlobalUtil.getRequestPath(request))){
 				return true;
 			}else if (GlobalUtil.isResRequest(request)) {
 				response.sendError(HttpStatus.FORBIDDEN.value(), "资源未找到");
 			} else {
+				if(request.getAttribute(WebConstants.LOGIN_ERROR) == null)//可能注销的时候会传递消息
+					request.setAttribute(WebConstants.LOGIN_ERROR, "未登录");
 				request.getRequestDispatcher("/login").forward(request, response);
 			}
 		}

@@ -11,7 +11,7 @@ public abstract class BaseController {
 	public static final String LOGIN = "/login";
 	public static final String DOLOGIN = "/doLogin";
 	public static final String ERROR = "/error";
-	public static final String DEVICE_NO_LOGIN_HTML = GlobalUtil.getServletContext().getContextPath()+"/static/html/noLogin.html";
+	public static final String DEVICE_NO_LOGIN_HTML = "/static/noLogin.html";
 	
 	public static String error(HttpServletRequest request, String msg){
 		request.setAttribute("title", "错误");

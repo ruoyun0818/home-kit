@@ -14,7 +14,7 @@
 	  <ul class="nav navbar-nav"></ul>
 	  <ul class="nav navbar-nav navbar-right">
 		<li class="dropdown">
-		  <a href="<%=request.getContextPath()%>/logout" class="dropdown-toggle ${empty sessionScope.login_key ? 'hide' : 'show'} }" data-toggle="dropdown" aria-expanded="false">注销</a>
+		  <a href="logout" class="dropdown-toggle ${empty sessionScope.login_key ? 'hide' : 'show'} }" data-toggle="dropdown" aria-expanded="false">注销</a>
 		</li>
 	  </ul>
     </div>
