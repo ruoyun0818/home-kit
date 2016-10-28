@@ -3,7 +3,7 @@ $(function() {
     // 播放器
     var Player = {
         // 歌曲路径
-        path : 'res/audio/',
+        path : audioPath,
 
         // 歌曲数据
         data : null,

@@ -59,7 +59,6 @@
 			<value>4096</value>
 		</property>
 	</bean>
-	
 	<mvc:interceptors>
 		<!--国际化资源切换（根据请求参数中的locale参数自动切换） 
 		<mvc:interceptor>
@@ -71,6 +70,7 @@
 		<!-- 登陆过滤器 -->
 		<mvc:interceptor>
 			<mvc:mapping path="/**" />
+			<mvc:exclude-mapping path="/static/**"/>
 			<mvc:exclude-mapping path="/error"/>
 			<bean id="loginInterceptor" class="com.whitesky.home.controller.common.interceptor.LoginInterceptor" />
 		</mvc:interceptor>

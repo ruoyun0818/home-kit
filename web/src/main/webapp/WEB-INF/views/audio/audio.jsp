@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>播放器</title>
 <jsp:include page="/WEB-INF/views/common/head.jsp" />
 </head>
@@ -43,7 +42,7 @@
 		</div>
 	</div>
 	<jsp:include page="/WEB-INF/views/common/js.jsp" />
-	<script src="<%=request.getContextPath()%>/static/js/audio.js"
-		type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">var audioPath = 'res/audio'</script>
+	<script src="static/js/audio.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>

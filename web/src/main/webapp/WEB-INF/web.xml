@@ -76,6 +76,8 @@
 	<servlet-mapping>
 		<servlet-name>rest</servlet-name>
 		<url-pattern>/</url-pattern>
+		<!-- 欢迎页1 -->
+		<url-pattern>/console</url-pattern>
 	</servlet-mapping>
 
 	<!-- 配置session超时时间，单位分钟 -->
@@ -84,6 +86,7 @@
 	</session-config>
 
 	<welcome-file-list>
-		<welcome-file>/console</welcome-file>
+		<!-- 欢迎页2 -->
+		<welcome-file>console</welcome-file>
 	</welcome-file-list>
 </web-app>
