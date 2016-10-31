@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -93,7 +94,13 @@ public class GlobalManager implements InitializingBean {
 	protected static synchronized void logOut(HttpSession session, boolean popup){
 		if(popup){
 			logger.info(String.format("popup logOut[%s]...", session.getId()));
-			logOut(session.getAttribute(WebConstants.SESSION_LOGIN_KEY).toString());
+			//session has been destroyed
+			//find deviceId from DEVICE_ONLINE_MAP
+			for (Entry<String, HttpSession> s : DEVICE_ONLINE_MAP.entrySet()) {
+				if(s.getValue().getId().equals(session.getId())){
+					logOut(s.getKey());
+				}
+			}
 		}else{
 			logger.info(String.format("popup logOuted[%s]...", session.getId()));
 			session.removeAttribute(WebConstants.SESSION_LOGIN_KEY);

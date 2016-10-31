@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.whitesky.home.controller.common.BaseController;
 
 @Controller
-@RequestMapping(value = "/photoWall", method = RequestMethod.GET)
-public class PhotoWallController extends BaseController {
+@RequestMapping(value = "/photo", method = RequestMethod.GET)
+public class PhotoController extends BaseController {
 
 	@RequestMapping("")
 	public String index(){
-		return "/photoWall/photoWall";
+		return "/photo/photo";
 	}
 }
