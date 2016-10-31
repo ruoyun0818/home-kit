@@ -15,6 +15,7 @@
 	<jsp:include page="/WEB-INF/views/common/js.jsp?fileinput=1" />
 	<script type="text/javascript">
 		$(function() {
+			//上传
 		});
 	</script>
 </body>
