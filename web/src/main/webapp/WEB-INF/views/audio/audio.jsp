@@ -4,13 +4,9 @@
 <head>
 <title>音乐</title>
 <jsp:include page="/WEB-INF/views/common/head.jsp" />
-<script type="text/javascript">
-	currentPath = "audio"
-	audioPath = 'res/audio/'
-</script>
 </head>
 <body>
-	<jsp:include page="/WEB-INF/views/common/top_nav.jsp" />
+	<jsp:include page="/WEB-INF/views/common/top_nav.jsp?p=audio" />
 	<div class="container">
 		<div class="row">
 			<div class="col-md-4">
@@ -53,6 +49,7 @@
 	</div>
 	<!-- /container -->
 	<jsp:include page="/WEB-INF/views/common/js.jsp" />
+	<script type="text/javascript">audioPath = 'res/audio/'</script>
 	<script src="static/js/audio.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>

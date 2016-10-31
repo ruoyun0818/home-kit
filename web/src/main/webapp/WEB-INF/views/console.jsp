@@ -9,7 +9,7 @@
 </script>
 </head>
 <body>
-	<jsp:include page="/WEB-INF/views/common/top_nav.jsp" />
+	<jsp:include page="/WEB-INF/views/common/top_nav.jsp?p=console" />
 	<div class="container">
 		<a href="audio">音乐播放器</a>
 		<jsp:include page="/WEB-INF/views/common/footer.jsp" />
