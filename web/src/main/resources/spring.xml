@@ -18,7 +18,7 @@
 	<bean id="propertyConfigurer" class="com.whitesky.home.common.config.JdbcPropertyPlaceholderConfigurer">
 		<property name="locations">
 			<list>
-				<value>classpath:config.properties</value>
+				<value>classpath:jdbc.properties</value>
 			</list>
 		</property>
 	</bean>
