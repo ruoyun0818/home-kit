@@ -9,7 +9,7 @@
 	<jsp:include page="/WEB-INF/views/common/top_nav.jsp?p=photo" />
 	<div class="container">
 		<!-- Button trigger modal -->
-		<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+		<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-backdrop="false">
 		  上传图片
 		</button>
 		<jsp:include page="/WEB-INF/views/common/footer.jsp" />
@@ -42,12 +42,17 @@
 			showClose: false,
 			showUploadedThumbs: false,
 			removeFromPreviewOnError: true,
-			//maxFileSize: 0,//单位为kb，如果为0表示不限制文件大小
-			//minFileCount: 0,
+			maxFileSize: 31744,//单位为kb，如果为0表示不限制文件大小
 			maxFileCount: 10, //表示允许同时上传的最大文件个数
 			enctype: 'multipart/form-data',
 			validateInitialCount:true,
-			msgFilesTooMany: "选择上传的文件数量({n}) 超过允许的最大数值{m}！",
+			msgFilesTooMany: "允许最大上传的文件数量({n})！",
+			previewSettings : {
+        	    image: {width: "213px", height: "160px"},
+        	    video: {width: "213px", height: "160px"},
+        	    audio: {width: "213px", height: "80px"},
+        	    flash: {width: "213px", height: "160px"},
+        	}
 		});
 	</script>
 </body>

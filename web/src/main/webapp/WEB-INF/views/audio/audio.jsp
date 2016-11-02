@@ -49,7 +49,9 @@
 	</div>
 	<!-- /container -->
 	<jsp:include page="/WEB-INF/views/common/js.jsp" />
-	<script type="text/javascript">audioPath = 'res/audio/'</script>
+	<script type="text/javascript">
+		audioPath = 'res/audio/'
+	</script>
 	<script src="static/js/audio.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>
