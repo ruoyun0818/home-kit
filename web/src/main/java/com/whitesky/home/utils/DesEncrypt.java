@@ -5,6 +5,8 @@ import java.security.Security;
 
 import javax.crypto.Cipher;
 
+import com.whitesky.home.common.Constant;
+
 /**
  * @Title: DES加密解密
  * @Description:
@@ -23,7 +25,7 @@ public class DesEncrypt {
 	private Cipher decryptCipher = null;
 	
 	/** 字符串编码 */
-	private static String strEncoding = "UTF-8";
+	private static String strEncoding = Constant.DEFAULT_ENCODING;
 	
 	/**
 	 * 将byte数组转换为表示16进制值的字符串， 如：byte[]{8,18}转换为：0813， 和public static byte[]

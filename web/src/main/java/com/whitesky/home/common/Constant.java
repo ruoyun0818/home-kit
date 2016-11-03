@@ -12,4 +12,12 @@ public class Constant {
 	 */
 	public static final String DEFAULT_ENCODING="utf-8";
 	
+	/**
+	 * 图片资源路径(绝对路径)
+	 * @return
+	 */
+	public static final String getImageResPath(){
+		return "C:/Users/whitesky/Desktop/temp/images/";
+	}
+	
 }

@@ -11,6 +11,7 @@ public abstract class BaseController {
 	public static final String LOGIN = "/login";
 	public static final String DOLOGIN = "/doLogin";
 	public static final String ERROR = "/error";
+	public static final String NOT_FOUND = "/notFound";
 	public static final String DEVICE_NO_LOGIN_HTML = "/static/noLogin.html";
 	
 	public static String error(HttpServletRequest request, String msg){
@@ -18,4 +19,5 @@ public abstract class BaseController {
 		request.setAttribute("message", msg);
 		return ERROR;
 	}
+	
 }

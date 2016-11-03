@@ -24,7 +24,7 @@
 	        <h4 class="modal-title" id="myModalLabel"> 上传图片</h4>
 	      </div>
 	      <div class="modal-body">
-	        <input id="up_file" name="file" type="file" class="file" multiple />
+	        <input id="up_file" name="file" type="file" multiple />
 	      </div>
 	      <div class="modal-footer">
 	      </div>
@@ -38,9 +38,8 @@
 			uploadUrl:'photo/save',
 			allowedFileTypes:['image', 'video', 'audio'],
 			showUpload: true, //是否显示上传按钮
-			showCaption: false,//是否显示标题
 			showClose: false,
-			showUploadedThumbs: false,
+			showUploadedThumbs: false,//是否显示上传完成的图片,false在另外选择上传文件后会清空已上传完成的图片
 			removeFromPreviewOnError: true,
 			maxFileSize: 31744,//单位为kb，如果为0表示不限制文件大小
 			maxFileCount: 10, //表示允许同时上传的最大文件个数
