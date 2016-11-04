@@ -33,6 +33,15 @@
 			</list>
 		</property>
 	</bean>
+    <bean class="org.springframework.http.converter.ByteArrayHttpMessageConverter">
+        <property name="supportedMediaTypes">
+            <list>
+                <value>image/*</value>
+                <value>video/*</value>
+                <value>application/octet-stream</value>
+            </list>
+        </property>
+    </bean>
 
 	<!-- 启动Spring MVC的注解功能，完成请求和注解POJO的映射 -->
 	<bean

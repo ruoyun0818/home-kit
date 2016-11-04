@@ -12,6 +12,8 @@
 		<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-backdrop="false">
 		  上传图片
 		</button>
+		<br/>
+		<input id="photo" type="file" />
 		<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 	</div>
 	<!-- /container -->
@@ -52,6 +54,25 @@
         	    audio: {width: "213px", height: "80px"},
         	    flash: {width: "213px", height: "160px"},
         	}
+		});
+		$("#photo").fileinput({
+			language:'zh',
+			showUpload:false,
+			showClose:false,
+			allowedFileTypes:['image', 'video', 'audio'],
+			previewSettings : {
+        	    image: {width: "213px", height: "160px"},
+        	    video: {width: "213px", height: "160px"},
+        	    audio: {width: "213px", height: "80px"},
+        	    flash: {width: "213px", height: "160px"},
+        	},
+        	initialPreviewFileType:"video/mp4",
+        	initialPreview: [
+				"<video class='kv-preview-data' width=\"213px\" height=\"160px\" controls>\n"
+				+"<source src='res/photo/1477993959207.mp4' type='video/mp4'/>\n"
+				+"Your browser does not support HTML5 video.\n</video>",
+				
+             ],
 		});
 	</script>
 </body>

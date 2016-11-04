@@ -6,14 +6,12 @@ import java.util.Set;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.log4j.Logger;
-import org.springframework.http.HttpStatus;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-import com.whitesky.home.common.WebConstants;
 import com.whitesky.home.controller.common.BaseController;
 import com.whitesky.home.controller.common.GlobalManager;
-import com.whitesky.home.controller.common.GlobalUtil;
 
 /**
  * @title 登陆Session过滤
@@ -23,7 +21,7 @@ import com.whitesky.home.controller.common.GlobalUtil;
  */
 public class LoginInterceptor extends HandlerInterceptorAdapter {
 
-	public static final Logger logger = Logger.getLogger(LoginInterceptor.class);
+	protected final Logger logger = LoggerFactory.getLogger(GlobalManager.class);
 	
 	protected static final Set<String> NO_CHECKURIS = new HashSet<String>(); 
 	static{

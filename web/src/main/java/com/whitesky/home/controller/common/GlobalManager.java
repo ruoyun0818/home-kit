@@ -9,7 +9,8 @@ import java.util.Map.Entry;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -31,7 +32,7 @@ public class GlobalManager implements InitializingBean {
 	public GlobalManager(DeviceLoginService deviceLoginService){
 		GlobalManager.deviceLoginService = deviceLoginService;
 	}
-	private static final Logger logger = Logger.getLogger(GlobalManager.class);
+	protected final static Logger logger = LoggerFactory.getLogger(GlobalManager.class);
 	protected static DeviceLoginService deviceLoginService;
 	
 	/** 当前登录信息 */
@@ -59,7 +60,7 @@ public class GlobalManager implements InitializingBean {
 		final String ip = GlobalUtil.getIpAddr(request);
 		DeviceLogin deviceLogin = IP_REGISTER_MAP.get(ip);
 		if(deviceLogin.getRegisterCode().equals(password)){
-			logger.info(String.format("%s[%s] login started...", deviceLogin.getDeviceId(), ip));
+			logger.info("{}[{}] login started...", deviceLogin.getDeviceId(), ip);
 			
 			//TODO 更新deviceLogin状态和登录时间
 			
@@ -78,7 +79,7 @@ public class GlobalManager implements InitializingBean {
 	 * @param deviceId 设备ID 
 	 */
 	public static synchronized void logOut(String deviceId){
-		logger.info(String.format("logOut[%s]...", deviceId));
+		logger.info("logOut[{}]...", deviceId);
 		HttpSession session = DEVICE_ONLINE_MAP.remove(deviceId);
 		//TODO 更新deviceLogin状态
 		if(session != null){

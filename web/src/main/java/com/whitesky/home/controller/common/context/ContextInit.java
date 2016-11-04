@@ -2,12 +2,15 @@ package com.whitesky.home.controller.common.context;
 
 import javax.servlet.ServletContextEvent;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.context.ContextLoaderListener;
+
+import com.whitesky.home.controller.common.GlobalManager;
 
 public class ContextInit extends ContextLoaderListener {
 	
-	public final static Logger logger = Logger.getLogger(ContextInit.class);
+	protected final Logger logger = LoggerFactory.getLogger(GlobalManager.class);
 	
 	@Override
 	public void contextInitialized(ServletContextEvent event) {

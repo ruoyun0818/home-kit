@@ -1,10 +1,8 @@
 package com.whitesky.home.controller;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.OutputStream;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
@@ -13,34 +11,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.whitesky.home.common.Constant;
 import com.whitesky.home.controller.common.BaseController;
+import com.whitesky.home.utils.MultipartFileSender;
 
 @Controller
 public class CommonController extends BaseController {
-	@RequestMapping("/res/photo/{img:.+}")
-	public String readImg(@PathVariable String img, HttpServletResponse response) throws IOException{
-		File realFile = new File(Constant.getImageResPath()+img);
-		if(!realFile.exists()){
-			return NOT_FOUND;
-		}else{
-			FileInputStream fis = null;  
-	        OutputStream os = null; 
-	        try {  
-	            fis = new FileInputStream(realFile);  
-	            os = response.getOutputStream();  
-	            int count = 0;  
-	            byte[] buffer = new byte[1024 * 8];  
-	            while ((count = fis.read(buffer)) != -1) {  
-	                os.write(buffer, 0, count);  
-	                os.flush();  
-	            }  
-	        } catch (Exception e) {  
-	        }  
-	        try {  
-	            fis.close();  
-	            os.close();  
-	        } catch (IOException e) {  
-	        }  
+	
+	/**
+	 * 相册资源类文件获取,支持range
+	 * @param res
+	 * @param request
+	 * @param response
+	 * @throws Exception
+	 */
+	@RequestMapping("/res/photo/{res:.+}")
+	public void photoRes(@PathVariable String res, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		logger.info("相册资源类文件获取,支持range:"+request.getMethod());
+		File file = new File(Constant.getImageResPath() + res);
+		try {
+			MultipartFileSender.fromFile(file).with(request).with(response).serveResource();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		return null;
 	}
 }

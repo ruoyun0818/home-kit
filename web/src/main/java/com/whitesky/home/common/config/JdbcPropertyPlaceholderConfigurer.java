@@ -2,7 +2,8 @@ package com.whitesky.home.common.config;
 
 import java.util.Properties;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
@@ -19,7 +20,7 @@ import com.whitesky.home.utils.DesEncrypt;
 public class JdbcPropertyPlaceholderConfigurer extends PropertyPlaceholderConfigurer  {
 	private final String desKey = "测试2421FｊｊJJJFEj密钥jjffweｆｊｊ14ｆｅ";
 	
-	public final static Logger LOGGER = Logger.getLogger(JdbcPropertyPlaceholderConfigurer.class);
+	protected final Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	@Override
 	protected void processProperties(ConfigurableListableBeanFactory beanFactoryToProcess, Properties props)
@@ -34,7 +35,7 @@ public class JdbcPropertyPlaceholderConfigurer extends PropertyPlaceholderConfig
 				props.setProperty(key, encryptValue);
 			}
 		} catch (Exception e) {
-			LOGGER.error("解密配置文件失败!", e);
+			logger.error("解密配置文件失败!", e);
 		}
 		super.processProperties(beanFactoryToProcess, props);
 	}

@@ -2,11 +2,12 @@ package com.whitesky.home.controller.common;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public abstract class BaseController {
 	
-	protected static final Logger logger = Logger.getLogger(new Object() {}.getClass().getEnclosingClass());
+	protected final Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	public static final String LOGIN = "/login";
 	public static final String DOLOGIN = "/doLogin";
