@@ -3,7 +3,7 @@
 <html lang="zh-cn">
 <head>
 <title>相册</title>
-<jsp:include page="/WEB-INF/views/common/head.jsp?fileinput=1" />
+<jsp:include page="/WEB-INF/views/common/head.jsp?fileinput=1&videojs=1" />
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/common/top_nav.jsp?p=photo" />
@@ -33,7 +33,7 @@
 	    </div>
 	  </div>
 	</div>
-	<jsp:include page="/WEB-INF/views/common/js.jsp?fileinput=1" />
+	<jsp:include page="/WEB-INF/views/common/js.jsp?fileinput=1&videojs=1" />
 	<script type="text/javascript">
 		$("#up_file").fileinput({
 			language:'zh',
@@ -68,7 +68,7 @@
         	},
         	initialPreviewFileType:"video/mp4",
         	initialPreview: [
-				"<video class='kv-preview-data' width=\"213px\" height=\"160px\" controls>\n"
+				"<video class='kv-preview-data video-js vjs-default-skin vjs-big-play-centered' width=\"213px\" height=\"160px\" controls data-setup='{}'>\n"
 				+"<source src='res/photo/1477993959207.mp4' type='video/mp4'/>\n"
 				+"Your browser does not support HTML5 video.\n</video>",
 				

@@ -5,6 +5,9 @@
 <c:if test="${!empty param.fileinput}">
 <script src="static/js/fileinput.min.js"></script>
 </c:if>
+<<c:if test="${!empty param.videojs }">
+<script src="//vjs.zencdn.net/5.8/video.min.js"></script>
+</c:if>
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="static/js/bootstrap.min.js"></script>
 <c:if test="${!empty param.fileinput}">

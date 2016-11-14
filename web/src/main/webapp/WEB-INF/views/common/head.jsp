@@ -15,6 +15,9 @@
 <c:if test="${!empty param.fileinput}">
 <link rel="stylesheet" href="static/css/fileinput.min.css" />
 </c:if>
+<c:if test="${!empty param.videojs}">
+<link href="//vjs.zencdn.net/5.8/video-js.min.css" rel="stylesheet">
+</c:if>
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
