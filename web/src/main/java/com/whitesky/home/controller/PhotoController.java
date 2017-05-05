@@ -15,8 +15,8 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import com.whitesky.home.common.Constant;
 import com.whitesky.home.controller.common.BaseController;
-import com.whitesky.home.utils.Md5Encrypt;
-import com.whitesky.home.utils.StringUtil;
+import com.whitesky.home.util.Md5Encrypt;
+import com.whitesky.home.util.StringUtil;
 
 import net.coobird.thumbnailator.Thumbnails;
 

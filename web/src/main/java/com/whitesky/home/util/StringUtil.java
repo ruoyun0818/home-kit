@@ -1,4 +1,4 @@
-package com.whitesky.home.utils;
+package com.whitesky.home.util;
 
 public class StringUtil {
 	public static boolean isBlank(String str) {

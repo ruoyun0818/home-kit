@@ -1,4 +1,4 @@
-package com.whitesky.home.utils;
+package com.whitesky.home.util;
 
 import java.security.Key;
 import java.security.Security;

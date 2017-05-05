@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.whitesky.home.common.WebConstants;
+import com.whitesky.home.common.WebConstant;
 import com.whitesky.home.controller.common.BaseController;
 import com.whitesky.home.controller.common.GlobalManager;
 import com.whitesky.home.controller.common.GlobalResult;
@@ -77,7 +77,7 @@ public class LoginController extends BaseController {
 		if(result.isCorrect()){
 			return "redirect:/console";
 		}else{
-			request.setAttribute(WebConstants.LOGIN_ERROR, result.getResult());
+			request.setAttribute(WebConstant.LOGIN_ERROR, result.getResult());
 			return LOGIN;
 		}
 	}

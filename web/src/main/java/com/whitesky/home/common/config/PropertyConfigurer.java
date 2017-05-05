@@ -9,7 +9,7 @@ import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
 
 import com.whitesky.home.common.Constant;
-import com.whitesky.home.utils.DesEncrypt;
+import com.whitesky.home.util.DesEncrypt;
 
 /**
  * @Title: 配置文件
@@ -17,17 +17,17 @@ import com.whitesky.home.utils.DesEncrypt;
  * @author whitesky
  * @date 2016年10月13日
  */
-public class JdbcPropertyPlaceholderConfigurer extends PropertyPlaceholderConfigurer  {
+public class PropertyConfigurer extends PropertyPlaceholderConfigurer {
 	private final String desKey = "测试2421FｊｊJJJFEj密钥jjffweｆｊｊ14ｆｅ";
-	
+
 	protected final Logger logger = LoggerFactory.getLogger(this.getClass());
-	
+
 	@Override
 	protected void processProperties(ConfigurableListableBeanFactory beanFactoryToProcess, Properties props)
 			throws BeansException {
 		try {
-			final String[] propKeys = new String[]{"jdbc.url","jdbc.username","jdbc.password"};
-			//指定编码方式
+			final String[] propKeys = new String[] { "jdbc.url", "jdbc.username", "jdbc.password" };
+			// 指定编码方式
 			DesEncrypt encrypt = new DesEncrypt(desKey, Constant.DEFAULT_ENCODING);
 			for (String key : propKeys) {
 				String value = props.getProperty(key);
@@ -39,4 +39,5 @@ public class JdbcPropertyPlaceholderConfigurer extends PropertyPlaceholderConfig
 		}
 		super.processProperties(beanFactoryToProcess, props);
 	}
+
 }

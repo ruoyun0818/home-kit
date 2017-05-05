@@ -1,4 +1,4 @@
-package com.whitesky.home.utils;
+package com.whitesky.home.util;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -7,6 +7,9 @@ import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.concurrent.CountDownLatch;
+
+import org.springframework.util.StopWatch;
 
 public class Md5Encrypt {
 	protected static char hexDigits[] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e',
@@ -21,13 +24,18 @@ public class Md5Encrypt {
 	}
 
 	public static void main(String[] args) throws IOException {
+		StopWatch watch = new StopWatch();
+		watch.start();
 		long begin = System.currentTimeMillis();
 
 		File big = new File("C:/Users/whitesky/Desktop/小贷/script-a.sql");
 		String md5 = getFileMD5String(big);
 
 		long end = System.currentTimeMillis();
-		System.out.println("md5:" + md5 + " time:" + ((end - begin) / 1000) + "s");
+		System.out.println("md5:" + md5 + " time:" + ((end - begin) ) + "ms");
+		
+		watch.stop();
+		System.out.println(watch.getTotalTimeMillis());
 	}
 
 	public static String getFileMD5String(File file) throws IOException {

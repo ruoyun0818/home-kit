@@ -1,0 +1,10 @@
+2017-05-05 05:59:44:INFO localhost-startStop-1 org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'rest': initialization started
+2017-05-05 05:59:44:INFO localhost-startStop-1 org.springframework.web.context.support.XmlWebApplicationContext - Refreshing WebApplicationContext for namespace 'rest-servlet': startup date [Fri May 05 17:59:44 CST 2017]; parent: Root WebApplicationContext
+2017-05-05 05:59:44:INFO localhost-startStop-1 org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-mvc.xml]
+2017-05-05 05:59:44:INFO localhost-startStop-1 org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-properties.xml]
+2017-05-05 05:59:44:INFO pool-1-thread-1 com.whitesky.home.controller.common.GlobalManager - refreshDevice total [1]...
+2017-05-05 05:59:44:INFO localhost-startStop-1 com.whitesky.home.common.config.PropertyConfigurer - Loading properties file from class path resource [jdbc.properties]
+2017-05-05 05:59:44:INFO localhost-startStop-1 com.whitesky.home.common.config.PropertyConfigurer - Loading properties file from class path resource [config.properties]
+2017-05-05 05:59:44:INFO localhost-startStop-1 org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/res/**.*] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2017-05-05 05:59:44:INFO localhost-startStop-1 org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
+2017-05-05 05:59:44:INFO localhost-startStop-1 org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'rest': initialization completed in 409 ms

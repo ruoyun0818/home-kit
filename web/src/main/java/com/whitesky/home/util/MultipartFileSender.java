@@ -1,4 +1,4 @@
-package com.whitesky.home.utils;
+package com.whitesky.home.util;
 
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -21,7 +21,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 
-import com.whitesky.home.controller.common.GlobalUtil;
+import com.whitesky.home.controller.common.RequestUtil;
 
 /**
  * Created by <a href="https://github.com/davinkevin/Podcast-Server/blob/d927d9b8cb9ea1268af74316cd20b7192ca92da7/src/main/java/lan/dk/podcastserver/utils/multipart/MultipartFileSender.java">kevin</a> on 10/02/15.
@@ -97,7 +97,7 @@ public class MultipartFileSender {
          * 简单从文件后缀返回文档类型
          * https://tika.apache.org/ Apache Tika 利用现有的解析类库，从不同格式的文档中（例如HTML, PDF, Doc)，侦测和提取出元数据和结构化内容
          */
-        String contentType = GlobalUtil.getServletContext().getMimeType(String.valueOf(filepath.getFileName()));
+        String contentType = RequestUtil.getServletContext().getMimeType(String.valueOf(filepath.getFileName()));
 
         // Validate request headers for caching ---------------------------------------------------
 

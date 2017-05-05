@@ -13,18 +13,12 @@
 	<!-- 定时器开关-->  
 	<task:annotation-driven /> 
 
-	<!--引入配置属性文件 -->
-	<!-- <context:property-placeholder location="classpath:config.properties" /> -->
-	<bean id="propertyConfigurer" class="com.whitesky.home.common.config.JdbcPropertyPlaceholderConfigurer">
-		<property name="locations">
-			<list>
-				<value>classpath:jdbc.properties</value>
-			</list>
-		</property>
-	</bean>
+	<import resource="spring-properties.xml"/>
 
 	<!--自动扫描含有@Service将其注入为bean -->
 	<context:component-scan base-package="com.whitesky.home.service.impl" />
+	<!-- task -->
+	<context:component-scan base-package="com.whitesky.home.controller.common" />
 
 	<!-- 国际化资源配置 <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource"> 
 		<property name="basename" value="message" /> <property name="useCodeAsDefaultMessage" 

@@ -6,7 +6,7 @@ package com.whitesky.home.common;
  * @author whitesky
  * @date 2016年9月4日
  */
-public class WebConstants {
+public class WebConstant {
 	/**
 	 * 用户登陆key
 	 */

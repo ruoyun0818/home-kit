@@ -2,8 +2,8 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-<title>相册</title>
-<jsp:include page="/WEB-INF/views/common/head.jsp?videojs=1" />
+<title>上传</title>
+<jsp:include page="/WEB-INF/views/common/head.jsp?fileinput=1" />
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/common/top_nav.jsp?p=photo" />
@@ -17,9 +17,9 @@
 		<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 	</div>
 	<!-- /container -->
-	<jsp:include page="/WEB-INF/views/common/js.jsp?fileinput=1&videojs=1" />
+	<jsp:include page="/WEB-INF/views/common/js.jsp?fileinput=1" />
 	<script type="text/javascript">
-		/* $("#up_file").fileinput({
+		$("#photo").fileinput({
 			language:'zh',
 			uploadUrl:'photo/save',
 			allowedFileTypes:['image', 'video', 'audio'],
@@ -39,25 +39,6 @@
         	    flash: {width: "240px", height: "160px"},
         	}
 		});
-		$("#photo").fileinput({
-			language:'zh',
-			showUpload:false,
-			showClose:false,
-			allowedFileTypes:['image', 'video', 'audio'],
-			previewSettings : {
-        	    image: {width: "240px", height: "160px"},
-        	    video: {width: "240px", height: "160px"},
-        	    audio: {width: "240px", height: "80px"},
-        	    flash: {width: "240px", height: "160px"},
-        	},
-        	initialPreviewFileType:"video/mp4",
-        	initialPreview: [
-				"<video class='kv-preview-data video-js vjs-default-skin vjs-big-play-centered' width=\"240px\" height=\"160px\" controls data-setup='{}'>\n"
-				+"<source src='res/1477993959207.mp4' type='video/mp4'/>\n"
-				+"Your browser does not support HTML5 video.\n</video>",
-				
-             ],
-		}); */
 	</script>
 </body>
 </html>

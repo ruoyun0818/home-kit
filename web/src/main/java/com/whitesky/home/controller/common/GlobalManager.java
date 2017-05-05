@@ -16,7 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import com.whitesky.home.common.WebConstants;
+import com.whitesky.home.common.WebConstant;
 import com.whitesky.home.model.DeviceLogin;
 import com.whitesky.home.service.DeviceLoginService;
 
@@ -57,7 +57,7 @@ public class GlobalManager implements InitializingBean {
 	 */
 	public static synchronized GlobalResult loginDevice(HttpServletRequest request, String password){
 		final HttpSession session = request.getSession(true);
-		final String ip = GlobalUtil.getIpAddr(request);
+		final String ip = RequestUtil.getIpAddr(request);
 		DeviceLogin deviceLogin = IP_REGISTER_MAP.get(ip);
 		if(deviceLogin.getRegisterCode().equals(password)){
 			logger.info("{}[{}] login started...", deviceLogin.getDeviceId(), ip);
@@ -66,7 +66,8 @@ public class GlobalManager implements InitializingBean {
 			
 			IP_REGISTER_MAP.remove(ip);
 			DEVICE_ONLINE_MAP.put(deviceLogin.getDeviceId(), session);
-			session.setAttribute(WebConstants.SESSION_LOGIN_KEY, deviceLogin.getDeviceId());
+			
+			session.setAttribute(WebConstant.SESSION_LOGIN_KEY, deviceLogin.getDeviceId());
 			logger.info(String.format("%s[%s] logined...", deviceLogin.getDeviceId(), ip));
 			return new GlobalResult(true, null);
 		}else{
@@ -104,7 +105,7 @@ public class GlobalManager implements InitializingBean {
 			}
 		}else{
 			logger.info(String.format("popup logOuted[%s]...", session.getId()));
-			session.removeAttribute(WebConstants.SESSION_LOGIN_KEY);
+			session.removeAttribute(WebConstant.SESSION_LOGIN_KEY);
 		}
 	}
 	
@@ -123,7 +124,7 @@ public class GlobalManager implements InitializingBean {
 	 * @return
 	 */
 	public static boolean isLogin(HttpServletRequest request) {
-		Object deviceId = request.getSession().getAttribute(WebConstants.SESSION_LOGIN_KEY);
+		Object deviceId = request.getSession().getAttribute(WebConstant.SESSION_LOGIN_KEY);
 		return deviceId != null && DEVICE_ONLINE_MAP.containsKey(deviceId);
 	}
 	

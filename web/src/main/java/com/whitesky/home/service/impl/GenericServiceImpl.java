@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.whitesky.home.dao.BaseMapper;
 import com.whitesky.home.service.GenericService;
-import com.whitesky.home.utils.ReflectionUtil;
+import com.whitesky.home.util.ReflectionUtil;
 
 public abstract class GenericServiceImpl<T extends BaseMapper<?, ?>> implements GenericService<T> {
 
